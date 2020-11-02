@@ -1,16 +1,18 @@
 ﻿using ChikenPlatesApp.Models.Enums;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ChikenPlatesApp.Models
 {
     public class ChickenPlate
     {
+        [Key]
         public long Id { get; set; }
+        [MaxLength(250)]
         public string Name { get; set; }
+        [MaxLength(250)]
         public string Sauce { get; set; }
-
         public decimal ChickenAmount { get; set; }
-
         public ChickenType Type { get; set; }
         public ChickenPart Part { get; set; }
         public SideDish Dish { get; set; }
