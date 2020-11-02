@@ -1,4 +1,7 @@
-﻿namespace ChikenPlatesApp.Models
+﻿using ChikenPlatesApp.Models.Enums;
+using System.Collections.Generic;
+
+namespace ChikenPlatesApp.Models
 {
     public class ChickenPlate
     {
@@ -11,6 +14,7 @@
         public ChickenType Type { get; set; }
         public ChickenPart Part { get; set; }
         public SideDish Dish { get; set; }
+        public List<Drink> Drinks { get; set; }    
 
     }
 }

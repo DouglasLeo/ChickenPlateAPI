@@ -2,6 +2,7 @@
 {
     public class Drink
     {
-        public string DrinkName { get; set; }
+        public long Id { get; set; }
+        string DrinkName { get; set; }
     }
 }
