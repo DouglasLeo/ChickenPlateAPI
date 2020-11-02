@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ChikenPlatesApp.Data;
+using ChikenPlatesApp.Models.Repositories;
+using ChikenPlatesApp.Services;
+using ChikenPlatesApp.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace ChikenPlatesApp
 {
@@ -31,6 +26,11 @@ namespace ChikenPlatesApp
             services.AddDbContext<ChickenContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("default"), builder =>
                     builder.MigrationsAssembly("ChikenPlatesApp")));
+            services.AddScoped<ISideDishService, SideDishServices>();
+
+            services.AddScoped<ISideDishRepository, SideDishRepository>();
+
+            services.AddScoped<SideDishServices>();
             services.AddControllers();
         }
 
