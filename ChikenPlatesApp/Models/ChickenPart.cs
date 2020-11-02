@@ -7,6 +7,9 @@ namespace ChikenPlatesApp.Models
     {
         [Key]
         public long Id { get; set; }
+        
+
+        [Required]
         [MaxLength(250)]
         public string PartName { get; set; }
 
